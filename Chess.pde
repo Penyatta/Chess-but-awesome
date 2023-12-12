@@ -16,7 +16,7 @@ boolean PieceSelected=false;
 int PieceInHand;
 int SidsteX=1000;
 int SidsteY=1000;
-boolean WhiteDead=false;
+boolean WhiteDead=true;
 boolean BlackDead=false;
 boolean PieceFromBoard;
 boolean musik=true;
