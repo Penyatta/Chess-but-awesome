@@ -19,14 +19,20 @@ int SidsteY=1000;
 boolean WhiteDead=false;
 boolean BlackDead=false;
 boolean PieceFromBoard;
+boolean musik=false;
+
 import processing.sound.*;
 SoundFile PeaceLoveAndHarmony;
+SoundFile Splat;
 
 int [][] positioner = new int[8][8];
 int white=-1;
 void setup () {
+  if (musik) {
   PeaceLoveAndHarmony = new SoundFile(this, "PeaceLoveAndHarmony.mp3");
   PeaceLoveAndHarmony.loop();
+  }
+  Splat = new SoundFile(this, "Splat.mp3");
   noStroke();
   WhiteKing=loadImage("WhiteKing.png");
   BlackKing=loadImage("BlackKing.png");
@@ -76,6 +82,9 @@ void mouseReleased () {
         if (PieceFromBoard) {
           positioner[SidsteX][SidsteY]=0;
         }
+        if (positioner[int(mouseX/100)][int(mouseY/100)]>0) {
+          Splat.jump(0.3);
+        }
         positioner[int(mouseX/100)][int(mouseY/100)]=PieceInHand;
         PieceSelected=false;
         SidsteX=1000;
@@ -86,6 +95,11 @@ void mouseReleased () {
     if(mouseX>900 && mouseY>600) {
      PieceInHand=0;
      PieceSelected=false;
+     if(SidsteX<9 && SidsteY<9) {
+       positioner[SidsteX][SidsteY]=0;
+       SidsteX=1000;
+        SidsteY=1000;
+     }
     }
   } 
   else {
