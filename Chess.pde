@@ -19,7 +19,7 @@ int SidsteY=1000;
 boolean WhiteDead=false;
 boolean BlackDead=false;
 boolean PieceFromBoard;
-boolean musik=false;
+boolean musik=true;
 
 import processing.sound.*;
 SoundFile PeaceLoveAndHarmony;
